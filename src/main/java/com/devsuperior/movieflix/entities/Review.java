@@ -38,7 +38,7 @@ public class Review implements Serializable{
 		this.id = id;
 		this.text = text;
 		this.user = user;
-		this.movie = movie;
+		this.movie = movie;		
 	}
 
 	public Long getId() {
@@ -72,7 +72,7 @@ public class Review implements Serializable{
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
