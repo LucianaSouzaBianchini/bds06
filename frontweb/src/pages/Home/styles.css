@@ -1,0 +1,95 @@
+.home-container {
+  border: 1px solid red;
+  color: white;
+}
+
+.home-card {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.home-image-container {
+  display: none;
+  border: 1px solid red;
+}
+
+.home-login-container {
+  width: 100%;
+  border: 1px solid red;
+  background-color: #6c6c6c;
+}
+
+@media (min-width: 576px) {
+  .home-login-container {
+    width: 450px;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-login-container {
+    width: 480px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-card {
+    padding: 40px;
+  }
+  .home-image-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  .home-image-container h1 {
+    padding-left: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+
+  .home-image-container p {
+    padding-left: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    width: 300px;
+    letter-spacing: -0.015em;
+    text-align: left;
+    color: #F2F2F2;
+  }
+
+  .home-image-container svg {
+    width: 100%;
+    border: 1px solid red;    
+  }
+  .home-login-container {
+    width: 500px;
+  }
+
+}
+
+
+
+@media (min-width: 1400px) {
+
+  .home-image-container {
+    width: 450px;
+    margin-top: 40px;
+  }
+
+  .home-image-container h1 {
+    font-size: 50px;
+    margin-bottom: 25px;
+  }
+
+  .home-image-container p {
+    font-size: 22px;
+    width: 350px;
+  }
+  .home-login-container {
+    width: 540px;
+  }
+
+}

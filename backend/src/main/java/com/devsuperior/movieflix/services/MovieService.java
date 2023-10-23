@@ -12,10 +12,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.movieflix.dto.MovieDTO;
+import com.devsuperior.movieflix.dto.ReviewDTO;
 import com.devsuperior.movieflix.entities.Genre;
 import com.devsuperior.movieflix.entities.Movie;
 import com.devsuperior.movieflix.repositories.GenreRepository;
 import com.devsuperior.movieflix.repositories.MovieRepository;
+import com.devsuperior.movieflix.repositories.ReviewRepository;
 import com.devsuperior.movieflix.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -26,6 +28,9 @@ public class MovieService {
 	
 	@Autowired
 	GenreRepository genreRepository;
+	
+	@Autowired
+	ReviewRepository reviewRepository;
 	
 	@Autowired
 	AuthService autoService;
@@ -52,5 +57,21 @@ public class MovieService {
 		Movie entity = obj.orElseThrow(() -> new ResourceNotFoundException("Movie not found"));
 		return new MovieDTO(entity);
 	}
+	/*
+	@Transactional(readOnly = true)
+	public List<ReviewDTO> findMovieWithReviews (Long id) {
+		return null;
+	}
+	@Transactional(readOnly = true)
+	public List<ReviewDTO> findMovieWithReviews(Long id) {
+		return repository.findMovieWithReviews(id).stream().map(x -> new ReviewDTO(x)).collect(Collectors.toList());
+	}
+*/
 
+	@Transactional(readOnly = true)
+	public List<ReviewDTO> findReviewFromMoview(Long id) {
+		Movie movie = repository.getOne(id);
+		return movie.getReviews().stream().map(x -> new ReviewDTO(x)).collect(Collectors.toList());
+	}
+	
 }

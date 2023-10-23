@@ -1,0 +1,56 @@
+.login-card {
+  padding: 20px;
+  font-size: 16px;
+}
+
+.login-card h1 {
+  font-size: 2.5em;
+  font-weight: normal;
+  letter-spacing: -0.015em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+.login-submit {
+  margin-top: 90px;
+  width: 384px;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .login-card {
+    padding: 50px;
+  }
+}
+
+/*
+
+
+.btn-container {
+    display: flex;
+}
+
+.btn-container button {
+    width: calc(100% - 50px);
+    border-radius: 10px 0 0 10px;
+}
+
+.btn h6 {
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+@media (min-width: 576px) {
+    .btn-container button {
+        width: calc(100% - 70px);
+    }
+
+    .btn h6 {
+        font-size: 18px;
+    }
+}
+*/

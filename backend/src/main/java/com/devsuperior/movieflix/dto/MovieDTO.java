@@ -1,8 +1,11 @@
 package com.devsuperior.movieflix.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.devsuperior.movieflix.entities.Movie;
+import com.devsuperior.movieflix.entities.Review;
 
 public class MovieDTO implements Serializable{
 
@@ -15,19 +18,24 @@ public class MovieDTO implements Serializable{
 	private String imgUrl;
 	private String synopsis;	
 	private GenreDTO genre;
+	private Long genreId;
+
+	private List<ReviewDTO> reviews = new ArrayList<>();
 	
 	public MovieDTO() {
 	}
 	
-	public MovieDTO(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, GenreDTO genre) {
-		super();
+//	public MovieDTO(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, GenreDTO genre) {
+	public MovieDTO(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis ) {
+	
+//		super();
 		this.id = id;
 		this.title = title;
 		this.subTitle = subTitle;
 		this.year = year;
 		this.imgUrl = imgUrl;
-		this.synopsis = synopsis;		
-		this.genre = genre;
+		this.synopsis = synopsis;
+//		this.genre = genre;
 	}
 
 	public MovieDTO(Movie entity) {
@@ -37,9 +45,15 @@ public class MovieDTO implements Serializable{
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		synopsis = entity.getSynopsis();
-		genre = new GenreDTO(entity.getGenre());
+//		genre = new GenreDTO(entity.getGenre());
+		genreId = entity.getGenre().getId();
+		genre = new GenreDTO(entity.getGenre().getId(),entity.getGenre().getName());
 	}
 
+	public MovieDTO(Movie entity, List<Review> reviews) {
+		this(entity);
+		reviews.forEach(x->this.reviews.add(new ReviewDTO(x)));
+	}
 	public Long getId() {
 		return id;
 	}
@@ -94,5 +108,18 @@ public class MovieDTO implements Serializable{
 
 	public void setGenre(GenreDTO genre) {
 		this.genre = genre;
-	}	
+	}
+	
+	public Long getGenreId() {
+		return genreId;
+	}
+
+	public void setGenreId(Long genreId) {
+		this.genreId = genreId;
+	}
+
+	public List<ReviewDTO> getReviews() {
+		return reviews;
+	}
+	
 }
